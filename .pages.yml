@@ -29,7 +29,7 @@ content:
         label: Date
         type: date
         preview:
-          target: '[data-pagescms-field="date"]'
+          target: '.post-metadata time'
           bind: text
           transform:
             - date: MMMM d, yyyy
@@ -48,7 +48,7 @@ content:
         label: Body
         type: rich-text
         preview:
-          target: '[data-pagescms-field="body"]'
+          target: '#skip > p'
           bind: html
 
   - name: about
