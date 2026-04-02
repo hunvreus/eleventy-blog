@@ -11,7 +11,7 @@ content:
     type: collection
     path: content/blog
     site:
-      path: /blog/{slug}
+      path: /blog/{primary}
     view:
       fields: [title, draft, date]
     fields:
