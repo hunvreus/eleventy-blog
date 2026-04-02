@@ -1,22 +1,62 @@
 media: public/img
+settings:
+  site:
+    url: http://localhost:8080
+    preview:
+      defaultOpen: true
+
 content:
   - name: posts
     label: Posts
     type: collection
     path: content/blog
+    site:
+      path: /blog/{slug}
     view:
-      fields: [ title, draft, date ]
+      fields: [title, draft, date]
     fields:
-      - { name: title, label: Title, type: string, required: true }
+      - name: title
+        label: Title
+        type: string
+        required: true
+        preview:
+          target: '[data-pagescms-field="title"]'
+          bind: text
+
       - { name: description, label: Description, type: string }
-      - { name: date, label: Date, type: date }
+
+      - name: date
+        label: Date
+        type: date
+        preview:
+          target: '[data-pagescms-field="date"]'
+          bind: text
+          transform:
+            - date: MMMM d, yyyy
+
       - { name: draft, label: Draft, type: boolean }
-      - { name: tags, label: Tags, type: string, list: true }
-      - { name: body, label: Body, type: rich-text }
+
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+        preview:
+          target: '[data-pagescms-field="tags"] > *'
+          bind: text
+
+      - name: body
+        label: Body
+        type: rich-text
+        preview:
+          target: '[data-pagescms-field="body"]'
+          bind: html
+
   - name: about
     label: About page
     type: file
     path: content/about/index.md
+    site:
+      path: /about/
     fields:
       - { name: layout, type: string, hidden: true, default: layouts/base.njk }
       - name: eleventyNavigation
@@ -25,7 +65,13 @@ content:
         fields:
           - { name: key, label: Key, type: string }
           - { name: order, label: Order, type: number }
-      - { name: body, label: Body, type: rich-text }
+      - name: body
+        label: Body
+        type: rich-text
+        preview:
+          target: '[data-pagescms-field="body"]'
+          bind: html
+
   - name: metadata
     label: Metadata
     type: file
