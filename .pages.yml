@@ -20,7 +20,7 @@ content:
         type: string
         required: true
         preview:
-          target: '[data-pagescms-field="title"]'
+          target: 'h1'
           bind: text
 
       - { name: description, label: Description, type: string }
