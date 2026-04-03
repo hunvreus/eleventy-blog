@@ -1,4 +1,9 @@
 media: public/img
+
+localization:
+  default: en
+  locales: [en, fr]
+
 settings:
   site:
     url: http://localhost:8080
@@ -10,6 +15,12 @@ content:
     label: Posts
     type: collection
     path: content/blog
+    localization:
+      scheme: files
+      locale:
+        type: folder
+        position: collection
+        default: omit
     site:
       path: /blog/{slug}
     view:
@@ -20,39 +31,40 @@ content:
         type: string
         required: true
         preview:
-          target: 'h1'
+          target: "h1"
           bind: text
-
       - { name: description, label: Description, type: string }
-
       - name: date
         label: Date
         type: date
         preview:
-          target: '.post-metadata time'
+          target: ".post-metadata time"
           bind: text
           transform:
             - date: MMMM d, yyyy
-
       - { name: draft, label: Draft, type: boolean }
-
       - name: tags
         label: Tags
         type: string
         list: true
-        
-
       - name: body
         label: Body
         type: rich-text
         preview:
-          target: '#skip > p'
+          target: "#skip > p"
           bind: html
 
   - name: about
     label: About page
     type: file
     path: content/about/index.md
+    localization:
+      scheme: files
+      locale:
+        type: folder
+        position: custom
+        root: content
+        default: omit
     site:
       path: /about/
     fields:
