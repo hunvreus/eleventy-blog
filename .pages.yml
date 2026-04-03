@@ -28,7 +28,7 @@ content:
     site:
       path: /blog/{slug}
     view:
-      fields: [title, draft, date]
+      fields: [title, draft, date, locale]
     fields:
       - name: title
         label: Title
