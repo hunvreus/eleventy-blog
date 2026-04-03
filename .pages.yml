@@ -2,7 +2,11 @@ media: public/img
 
 localization:
   default: en
-  locales: [en, fr]
+  locales:
+    - label: English
+      code: en
+    - label: Francais
+      code: fr
 
 settings:
   site:
