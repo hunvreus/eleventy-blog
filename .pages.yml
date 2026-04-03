@@ -5,7 +5,7 @@ localization:
   locales:
     - label: English
       code: en
-    - label: Francais
+    - label: Français
       code: fr
 
 settings:
